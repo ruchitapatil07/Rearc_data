@@ -1,6 +1,6 @@
 #  Population Data  Pipeline
 
-This project automates the ingestion, storage, and analysis of public data from the U.S. Bureau of Labor Statistics (BLS) and DataUSA API. It leverages AWS services and PySpark within AWS Glue to deliver a production-ready ETL pipeline.
+This project automates the ingestion, storage, and analysis of public data from the U.S. Bureau of Labor Statistics (BLS) and DataUSA API. It leverages AWS services and PySpark within AWS Glue to deliver ETL pipeline.
 
 ---
 
@@ -10,10 +10,7 @@ This project automates the ingestion, storage, and analysis of public data from 
 
 - Source: [https://download.bls.gov/pub/time.series/pr/pr.data.0.Current](https://download.bls.gov/pub/time.series/pr/pr.data.0.Current)
 - User-Agent headers are set to comply with BLS access requirements and avoid `403 Forbidden` errors.
-- The pipeline checks for new or deleted files from the source and prevents duplicate uploads.
-- File uploads are managed dynamically without hardcoded names.
-
-
+- The pipeline checks for new or deleted files from the source and prevents duplicate uploads
 
 ---
 
@@ -23,7 +20,6 @@ This project automates the ingestion, storage, and analysis of public data from 
 
 - API Endpoint: `https://datausa.io/api/data?drilldowns=Nation&measures=Population`
 - Data is stored as a timestamped `.json` file in S3 under `population-data/`
-- Automates snapshot generation for historical queries and reproducibility
 
 ---
 
@@ -64,11 +60,11 @@ series_id       year    period    value    population
 PRS30006032     2018    Q01       1.9      327167439
 ```
 
-✔️ Joins structured CSV and JSON datasets with broadcast optimization for performance.
+ Joins structured CSV and JSON datasets with broadcast optimization for performance.
 
 ---
 
-## Tech Stack
+## Tech Stack Used
 
 - **AWS S3**: Object storage for CSV and JSON datasets
 - **AWS Glue + PySpark**: Distributed ETL and analytics processing
